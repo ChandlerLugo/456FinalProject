@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugo Final Project</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+</head>
+
+<style>
+    #map { 
+        width: 75%;
+        height: 700px;
+    }
+</style>
+
+<body>
+    <h3 id="Time"> Units of time </h3>
+    <input id="dateSlider" type="range" name="Time" min="0" max="33" oninput="moveSlider(this.value)">
+    
+    <div id="map"></div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <!-- Your JavaScript Files -->
+    <script src="track.js"></script>
+    <script src="homes.js"></script>
+
+    <script>
+        var map = L.map('map').setView([27.951, -82.458], 7);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+                iconSize: [80, 48],
+                iconAnchor: [40, 22]
+            }
+        });
+
+        var MyIcon = new LeafIcon({iconUrl: 'hurrpic.png'});
+
+        var geojson;
+
+        function moveSlider(value) {
+            map.removeLayer(geojson);
+            document.getElementById('Time').innerHTML = 'Time: ' + value;
+            geojson = L.geoJson(track[value], {
+                pointToLayer: function(feature, latlng) {
+                    return L.marker(latlng, {icon: MyIcon});
+                }
+            }).addTo(map);
+        }
+
+        moveSlider(0); // Initialize the slider position
+    </script>
+</body>
+</html>
