@@ -25,6 +25,7 @@
     #map { 
         width: 75%;
         height: 700px;
+        margin: 0 auto;
          }
      
     .style-div {
@@ -33,16 +34,31 @@
         font-family: 'Times New Roman', Times, serif ;
         text-align: center;
         font-size: 14pt;
-        border-radius: 5px; 
         padding: 20px; 
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
         }
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;
+        background: #b8f7ff;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;}
+
+    .photo {
+        max-width: 30%;
+        height: auto; 
+        display: block; 
+        margin: 0 auto; 
+        border-radius: 5px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
 
 </style>
 
 
 
-<body>
+<body style="background-color: #00343a;">
    
 
     <div class="style-div">
@@ -66,12 +82,13 @@
 
         <h3> Hurricane Ian </h3>
             <p> 
-                We witnesses the devastating effects of strong hurricanes in Florida recently. In 2022, Hurricane Ian developed just 
-                of the Caribbean Sea and reached Category 4 as it hit the western coast of Florida and travelled northeast across the state. 
+                We witnesses the devastating effects of strong hurricanes in Florida recently. In 2022, Hurricane Ian developed in the 
+                Caribbean Sea and reached Category 4 as it hit the western coast of Florida and travelled northeast across the state. 
                 Ian was recorded to have a 75 mile wind field along its eye's track with sustained winds reaching over 74 miles an hour with wind gusts well over 
                 100 miles an hour. Category 4 hurricanes can produce winds up to 155 miles an hour. Ian was the costliest natural disaster of 2022, causing 
                 a reported 112.9 billion dollars in damage. Thats the third costliest hurricane since 1980. 
             </p>
+            <img src="trackphoto.png" alt="Hurricane Ian Track NOAA" class="photo">
 
         <h3> Mobile Homes in Florida </h3>
             <p>
@@ -103,8 +120,8 @@
         
     </div>
 
-    <h3 id="Time"> Units of time </h3>
-    <input id="dateSlider" type = "range" name = "Time" min = "0" max = "33" oninput="moveSlider(this.value)">
+    <h3 id="Time" style="color: #b8f7ff;"> Units of time </h3>
+    <input class="slider" id="dateSlider" type = "range" name = "Time" min = "0" max = "33" oninput="moveSlider(this.value)">
     
     <div id="map"></div>
 <script>
@@ -145,34 +162,39 @@
     map.addLayer(geojson);    
 
 
-    <div class="style-div">
+   
+
+</script>
+
+ <div class="style-div">
         <h3> References </h3>
+        <p>
         <a href="https://fcit.usf.edu/florida/lessons/hurricane/hurricane.htm#:~:text=Florida%20has%20quite%20a%20history,the%20equator%2C%20Florida%20is%20vulnerable. "> 
             'Hurricanes in Florida,' Florida Center for Instructional Technology </a> 
         
+        <p></p>
         <a href="https://learn.weatherstem.com/modules/learn/lessons/192/20.html"> 
             'Hurricane Ian: Wind Field,' WeatherStem, NOAA Data</a>
+        <p></p>
         <a href="https://www.fox4now.com/news/local-news/hurricane-ian-ranks-as-the-costliest-natural-disaster-in-usa-during-2022#:~:text=%E2%80%94%20According%20to%20a%20NOAA%20report,cost%20of%20112.9%20billion%20dollars.">
             'Hurricane Ian ranks as the costliest natual disaster in USA during 2022,' Fox News 4 </a>
-    
+        
+        <p></p>
         <a href="https://www.npr.org/2022/10/09/1127714293/hurricane-ian-older-mobile-homes-florida-destroyed">
             'Hurricane Ian highlighted the vulnerabilities of older mobile homes,' NPR </a>
         
+        <p></p>
         <a href="https://blog.fourstarhomes.com/a-history-of-florida-mobile-home-resorts/#:~:text=Trailer%20estates%20started%20selling%20lots,into%20a%20planned%20development%20community.">
             'A History of Mobile Home Resorts in Florida,' Four Star Homes Blog </a>
         <a href="https://www.nbcnews.com/news/us-news/hurricane-ian-wrecked-mobile-home-park-spared-another-street-rcna50177">
             'Hurricane Ian wrecked a mobile home park...' NBC News</a>
-        
+        <p></p>
         <a href="https://www.nbcnews.com/news/us-news/hurricane-ian-wrecked-mobile-home-park-spared-another-street-rcna50177">
             'After Hurricane Ian, Fort Myers Beach struggles to become 'a functional paradise,'' NPR </a>
-        
-        
+        <p></p>
+        </p>
         
     </div>
-
-</script>
-
-
 
 
 </body>
