@@ -51,7 +51,9 @@
         var geojson;
 
         function moveSlider(value) {
-            map.removeLayer(geojson);
+            if (geojson) {
+                map.removeLayer(geojson);
+            }
             document.getElementById('Time').innerHTML = 'Time: ' + value;
             geojson = L.geoJson(track[value], {
                 pointToLayer: function(feature, latlng) {
