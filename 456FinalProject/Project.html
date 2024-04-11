@@ -27,19 +27,86 @@
         height: 700px;
          }
      
-
+    .style-div {
+        background-color: #b8f7ff; 
+        border: 1px solid #003f43; 
+        font-family: 'Times New Roman', Times, serif ;
+        text-align: center;
+        font-size: 14pt;
+        border-radius: 5px; 
+        padding: 20px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
 
 </style>
 
 
 
 <body>
+   
+
+    <div class="style-div">
+        <h1> Climate Change Increases Threat of Devastation for Disadvantaged Florida Citizens  </h1>
+        <h2>By Chandler Lugo</h2>
+
+        <h3> Hurricanes in Florida </h3>
+            <p> 
+                The state of Florida has a long history of experiencing devastating hurricanes 
+                due to its geographic position. The state's pennisula juts out into the Atlantic Ocean
+                and Gulf of Mexico, towards the Tropic of Cancer. It is here, near the tropics and over warm waters that 
+                hurricanes are most likely to form. As these storms pass over Florida, the state is subject to coastal surges, 
+                heavy rain, and winds that can reach over 155 miles per hour. As the Earth and its oceans become warmer with 
+                climate change, major hurricanes, hurricanes Category 3 and above, are becoming more common in the Gulf. 
+                The warmer air and sea temperatures create conditions in which hurricanes are more likely to form. 
+                In the past 10 years, 8 major hurricanes and made landfall in the Southeastern United States, 4 of which hit 
+                the coast of Florida. It is not just volume of storms that the state should worry about, but the strength and speed of them. 
+                The higher volumes of warm waters cause the storms to grow bigger than they have in the past and take much longer to 
+                dissapate after they make land fall. 
+            </p>
+
+        <h3> Hurricane Ian </h3>
+            <p> 
+                We witnesses the devastating effects of strong hurricanes in Florida recently. In 2022, Hurricane Ian developed just 
+                of the Caribbean Sea and reached Category 4 as it hit the western coast of Florida and travelled northeast across the state. 
+                Ian was recorded to have a 75 mile wind field along its eye's track with sustained winds reaching over 74 miles an hour with wind gusts well over 
+                100 miles an hour. Category 4 hurricanes can produce winds up to 155 miles an hour. Ian was the costliest natural disaster of 2022, causing 
+                a reported 112.9 billion dollars in damage. Thats the third costliest hurricane since 1980. 
+            </p>
+
+        <h3> Mobile Homes in Florida </h3>
+            <p>
+              The congregation of trailer homes in Florida dates back to the establishment of manufacturing plants during World War II. 
+              Workers could move closer to plants and live in small, cheap housing in the form of mobile homes/trailers. Mobile home "resorts" of the 1960s 
+              started to attract retirees from across the U.S. with promises of warm weather and amenities like pools and club houses. Today, mobile home parks 
+              provide low-cost housing, more mobilty, a sense of community, more housing in highly-sought after cities and towns, and the opportunity to own a 
+              home. 
+            </p>
+
+        <h3> Disproportionate Threat </h3>
+            <p>
+              The quality of life with a relatively lower cost of living and an escape from harsh winters continues to attract retirees and 'snowbirds.' 
+              But these benefits are starting to come at a cost. With the recent surge in strong, slow-moving hurricanes, senior citizens and low-income 
+              families who live in mobile homes, specifically mobile parks, are at the highest risk of complete devastation. This is not just a weather problem, 
+              it is a social and economic problem. Climate change is having a disproportionate effect on people in poverty and people, like retirees, with no 
+              active income. Their homes are at risk of being, and frenquently are, completely wiped away by major hurricanes. For example, Fort Myers Beach, Florida may 
+              have experienced the worst devastation during Hurricane Ian. A 15-foot storm surge rushed onto the coast causing 150 deaths and all kinds of older homes, especially 
+              mobile ones in places like Fort Myers Trailer Park and Poinsetta Mobile Home Park. Newer brick-and-mortar homes fared the storm amazingly well, on the other hand. 
+              Thus, in the coming decades, as Florida experiences more and more major hurricanes, climate change is posing a severely disproportionate, deadly risk to economically 
+              disadvantaged Floridians. 
+            </p>
+
+        <h3> Wind Fields</h3>
+            <p> The deadliest symptom of a hurricane is not pelting rain or flooding, but winds. Extreme wind speeds tear apart the thin metal and wooden exteriors of mobile homes and 
+                cause storm surges dozens of feet tall that pull homes right off of their foundations. So, for my map, how many mobile home parks were at risk during or fell victim to 
+                Hurricane Ian's strongest wind field. Further, how many of these parks would be at risk in the event of an even stronger hurricane that could follow a similar path. 
+            </p>
+        
+    </div>
+
     <h3 id="Time"> Units of time </h3>
     <input id="dateSlider" type = "range" name = "Time" min = "0" max = "33" oninput="moveSlider(this.value)">
     
     <div id="map"></div>
-
-
 <script>
 
     var map = L.map('map').setView([27.951, -82.458], 7);
