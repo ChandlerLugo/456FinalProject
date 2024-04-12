@@ -151,7 +151,7 @@
 
     var MyIcon = new LeafIcon({iconUrl: 'hurrpic.png'})
 
-    var geojson = L.geoJson(track.attributes[0],
+    var geojson = L.geoJson(iantrack.features[0],
             {
             pointToLayer: function(__OBJECTID,x,y){
                 return L.marker(x,y,{icon: MyIcon})
@@ -171,6 +171,19 @@
     map.addLayer(geojson);    
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////
+///point data///
+
+function addGeoJSONPointsToMap(map, mobilehomes) {
+    L.geoJSON(mobilehomes, {
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        }
+    }).addTo(map);
+}
+
+///////////////////////////////////////////////////////////////////////////////////
    
 
 </script>
