@@ -144,7 +144,7 @@
     function addGeoJSONCirclesToMap(map, mobilehomes) {
         L.geoJSON(mobilehomes, {
             pointToLayer: function (feature) {
-            var coordinates = features.geometry.coordinates;
+            var coordinates = feature.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
                 radius: 5, 
                 fillColor: "blue", 
@@ -156,9 +156,6 @@
         }
     }).addTo(map);
         }
-
-
-    addGeoJSONCirclesToMap(map, mobilehomes);
 
 
     
