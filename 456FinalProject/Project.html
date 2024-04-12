@@ -141,50 +141,27 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-
-    var LeafIcon = L.Icon.extend({
-        options: {
-            iconSize:     [80, 48],
-            iconAnchor:   [40, 22],
-            }
-        })    
-
-    var MyIcon = new LeafIcon({iconUrl: 'hurrpic.png'})
-
-    var geojson = L.geoJson(iantrack.features[0],
-            {
-            pointToLayer: function(__OBJECTID,x,y){
-                return L.marker(x,y,{icon: MyIcon})
-            }
-        }).addTo(map);
-
-    function moveSlider(value) { // function called by the slider that uses the value to select one feature, using the index of the feature array. 
-            //console.log(e.value)
-        map.removeLayer(geojson);// leaflet method to remove a layer
-        document.getElementById('Time').innerHTML = 'Time' + track.attributes.__OBJECTID[value]
-                geojson = L.geoJson(track.attributes[value],{
-                pointToLayer: function(__OBJECTID,x,y){
-                    return L.marker(x,y,{icon: MyIcon})
-                }
-            })}
-    
-    map.addLayer(geojson);    
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////
-///point data///
-
-function addGeoJSONPointsToMap(map, mobilehomes) {
-    L.geoJSON(mobilehomes, {
-        pointToLayer: function (feature, latlng) {
-            return L.marker(latlng);
+    function addGeoJSONCirclesToMap(map, mobilehomes) {
+        L.geoJSON(mobilehomes, {
+            pointToLayer: function (feature) {
+            var coordinates = features.geometry.coordinates;
+            return L.circleMarker([coordinates[1], coordinates[0]], {
+                radius: 5, 
+                fillColor: "blue", 
+                color: "black", 
+                weight: 1, 
+                opacity: 1, 
+                fillOpacity: 0.8 
+            });
         }
     }).addTo(map);
-}
+        }
 
-///////////////////////////////////////////////////////////////////////////////////
-   
+
+    addGeoJSONCirclesToMap(map, mobilehomes);
+
+
+    
 
 </script>
 
