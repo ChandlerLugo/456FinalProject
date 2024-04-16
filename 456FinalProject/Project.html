@@ -62,6 +62,7 @@
         height: 700px;
         margin: 0 auto;
         background-color: white;
+        display: none;
     }
     .container{
         display: flex;
@@ -145,7 +146,11 @@
     
     <div class="container">
         <div class="map", id="map"></div>
-        <div class="infobox", id="infobox"> Information Here </div>
+        <div class="infobox", id="infobox1"> Information 1 </div>
+        <div class="infobox", id="infobox2"> Information 2 </div>
+        <div class="infobox", id="infobox3"> Information 3 </div>
+        <div class="infobox", id="infobox4"> Information 4 </div>
+        <div class="infobox", id="infobox5"> Information 5 </div>
     </div>
 <script>
 
@@ -162,13 +167,31 @@
     var marker4 = L.marker([26.119928525068026, -80.33110584467626]).addTo(map);
     var marker5 = L.marker([26.933018331973553, -82.32123893478173]).addTo(map);
     
-    function onMarkerClick() {
-      var infoBox = document.getElementById('infobox');
-      infoBox.style.display = 'none' ? 'block' : 'none';
+    function onMarkerClick(markerId) {
+        var infoBoxes = document.querySelectorAll('.infobox');
+        infoBoxes.forEach(function(box) {
+            box.style.display = 'none';
+            });
+
+      var infoBoxId = 'infobox' + markerId;
+      var infoBox = document.getElementById(infoBoxId);
+      infoBox.style.display = 'block';
     }
-    marker1.on('click', onMarkerClick);
-
-
+    marker1.on('click', function() {
+      onMarkerClick(1); 
+    });
+    marker2.on('click', function() {
+      onMarkerClick(2); 
+    });
+    marker3.on('click', function() {
+      onMarkerClick(3); 
+    });
+    marker4.on('click', function() {
+      onMarkerClick(4); 
+    });
+    marker5.on('click', function() {
+      onMarkerClick(5); 
+    });
 
     //////////////////////////////////////////////////////////////////////////////
 
