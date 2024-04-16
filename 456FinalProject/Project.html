@@ -22,11 +22,11 @@
 
 
 <style>
-    #map { 
-        width: 75%;
+    .map { 
+        width: 50%;
         height: 700px;
         margin: 0 auto;
-         }
+    }
      
     .style-div {
         background-color: #b8f7ff; 
@@ -35,7 +35,7 @@
         text-align: center;
         font-size: 14pt;
         padding: 20px; 
-        }
+    }
     .slider {
         -webkit-appearance: none;
         width: 80%;
@@ -44,7 +44,7 @@
         opacity: 0.9;
         transition: opacity 0.2s;
         margin:0 auto;
-        }
+    }
 
     .photo {
         max-width: 30%;
@@ -52,9 +52,20 @@
         display: block; 
         margin: 0 auto; 
         border-radius: 5px; 
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
     .spacer {
-        height: 300px;}
+        height: 300px;
+    }
+    .infobox {
+        width: 40%;
+        height: 700px;
+        margin: 0 auto;
+        background-color: white;
+    }
+    .container{
+        display: flex;
+    }
 
 </style>
 
@@ -132,7 +143,10 @@
     <h3 id="Time" style="color: #ffffff;"> Units of time </h3>
     <input class="slider" id="dateSlider" type = "range" name = "Time" min = "0" max = "33" oninput="moveSlider(this.value)">
     
-    <div id="map"></div>
+    <div class="container">
+        <div class="map", id="map"></div>
+        <div class="infobox", id="infobox"> Information Here </div>
+    </div>
 <script>
 
     var map = L.map('map').setView([27.951, -82.458], 7);
@@ -140,6 +154,23 @@
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+
+    /////////////////Markers//////////////////////////////////////////////////////
+    var marker1 = L.marker([26.652915464843126, -81.81589643745903]).addTo(map);
+    var marker2 = L.marker([26.335271426232133, -81.81559516720671]).addTo(map);
+    var marker3 = L.marker([27.042982825995068, -82.26489227206444]).addTo(map);
+    var marker4 = L.marker([26.119928525068026, -80.33110584467626]).addTo(map);
+    var marker5 = L.marker([26.933018331973553, -82.32123893478173]).addTo(map);
+    
+    function onMarkerClick() {
+      var infoBox = document.getElementById('infobox');
+      infoBox.style.display = 'none' ? 'block' : 'none';
+    }
+    marker1.on('click', onMarkerClick);
+
+
+
+    //////////////////////////////////////////////////////////////////////////////
 
     function addGeoJSONCirclesToMap(map, mobilehomes) {
         L.geoJSON(mobilehomes, {
@@ -163,11 +194,7 @@
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    var marker1 = L.marker([26.652915464843126, -81.81589643745903]).addTo(map);
-    var marker2 = L.marker([26.335271426232133, -81.81559516720671]).addTo(map);
-    var marker3 = L.marker([27.042982825995068, -82.26489227206444]).addTo(map);
-    var marker4 = L.marker([26.119928525068026, -80.33110584467626]).addTo(map);
-    var marker5 = L.marker([26.933018331973553, -82.32123893478173]).addTo(map);
+
     
 </script>
 
