@@ -54,6 +54,13 @@
         border-radius: 5px; 
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    .tinyphoto {
+        max-width: 80%;
+        height: auto; 
+        display: block; 
+        margin: 0 auto;  
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
     .spacer {
         height: 300px;
     }
@@ -151,11 +158,23 @@
         <div class="map", id="map"></div>
         <div class="infobox", id="infobox1"> 
             <h3>Poinsettia Trailer Park, Fort Myers, FL</h3>
-            <p></p>
+            <p>As Hurricane Ian's Eye hit the coast of Florida on September 28th at Category 4 intensity,
+                a 15 foot surge of water and 120 mile an hour winds hit Fort Myers and its surrounding towns.
+                Poinsettia Mobile Home Park, comprised of 322 homes, suffered severe devastation. One owner admits 
+                "[The homes] are not built to survive the kind of punishment that Hurricane Ian dished out."
+            </p>
+            <img src="./images/Poinsettia.png" class="tinyphoto"></img>
+            <a href="https://www.nbcnews.com/news/us-news/hurricane-ian-wrecked-mobile-home-park-spared-another-street-rcna50177">
+                NBC News, 'Hurricane Ian wrecked mobile home park but spared another across the street'
+            </a>
         </div>
         <div class="infobox", id="infobox2"> 
             <h3>Bonita Beach Mobile Home Park, Bonita Springs, FL</h3>
             <p></p>
+            <img src="./images/BonitaSprings.png" class="tinyphoto"></img>
+            <a href="https://www.nbcmiami.com/news/local/like-a-bomb-went-off-bonita-springs-family-among-many-who-lost-everything-in-ian/2876867/">
+                NBC Miami, 'Bonita Springs family among many who lost everything in Ian'
+            </a>
         </div>
         <div class="infobox", id="infobox3"> 
             <h3>La Casa Mobile Home Park, North Port, FL</h3>
@@ -234,6 +253,10 @@
 
 
   /////////////////////////////////Track Data//////////////////////////////////////////////////////////////
+
+
+  L.geoJSON(track).addTo(map);
+
 
 
     
