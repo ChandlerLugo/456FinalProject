@@ -211,15 +211,15 @@
       onMarkerClick(5); 
     });
 
-    //////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Point Data/////////////////////////////////////////////////////
 
     function addGeoJSONCirclesToMap(map, mobilehomes) {
         L.geoJSON(mobilehomes, {
-            pointToLayer: function (feature) {
+            pointToLayer: function (features) {
             var coordinates = features.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
                 radius: 5, 
-                fillColor: "blue", 
+                fillColor: "yellow", 
                 color: "black", 
                 weight: 1, 
                 opacity: 1, 
@@ -233,7 +233,7 @@
 
 
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////Track Data//////////////////////////////////////////////////////////////
 
 
     
