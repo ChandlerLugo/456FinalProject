@@ -1,4 +1,4 @@
-var homes = 
+var mobilehomes = 
 {
 "type": "FeatureCollection",
 "name": "mobilehomes",
