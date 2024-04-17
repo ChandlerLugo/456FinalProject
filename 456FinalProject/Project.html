@@ -283,6 +283,36 @@
 
   L.geoJSON(track).addTo(map);
 
+  var LeafIcon = L.Icon.extend({
+            options: {
+                iconSize:     [80, 48],
+                iconAnchor:   [40, 22],
+            }
+        })
+
+        var greenIcon = new LeafIcon({iconUrl: 'hurrpic.png'})
+
+        var geojson = L.geoJson(track.features[0],{
+            pointToLayer: function(feature,latlng){
+                return L.marker(latlng,{icon: greenIcon})
+            }
+        }).addTo(map);
+
+    function moveSlider(value) { 
+            map.removeLayer(track);
+            document.getElementById('daYear').innerHTML = 'Day ' + track.features[value].properties.date
+            geojson = L.geoJson(track.features[value],{
+                pointToLayer: function(feature,latlng){
+                    return L.marker(latlng,{icon: greenIcon})
+                }
+            })
+            map.addLayer(geojson); 
+            
+        }
+        moveSlider(0) 
+        window.onload = function() {
+        document.getElementById('dateSlider').value = 0;  
+    };
 
 
     
