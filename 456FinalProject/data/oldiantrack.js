@@ -1,4 +1,4 @@
-var track = 
+var linetrack = 
 {
     "type": "FeatureCollection",
     "name": "IanTrack",
