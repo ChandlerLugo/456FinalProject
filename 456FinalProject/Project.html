@@ -284,37 +284,24 @@
 
   L.geoJSON(linetrack).addTo(map);
 
-  var LeafIcon = L.Icon.extend({
-            options: {
-                iconSize:     [80, 48],
-                iconAnchor:   [40, 22],
-            }
-        })
+  
 
-        var greenIcon = new LeafIcon({iconUrl: 'hurrpic.png'})
+///////////////////////////////track data////////////////////////////////////////////////////////////////////////////
 
-        var geojson = L.geoJson(track.features[0],{
-            pointToLayer: function(feature,latlng){
-                return L.marker(latlng,{icon: greenIcon})
-            }
-        }).addTo(map);
+L.geoJSON(track).addTo(map)
 
-    function moveSlider(value) { 
-            map.removeLayer(track);
-            document.getElementById('daYear').innerHTML = 'Day ' + track.features[value].properties.date
-            geojson = L.geoJson(track.features[value],{
-                pointToLayer: function(feature,latlng){
-                    return L.marker(latlng,{icon: greenIcon})
-                }
-            })
-            map.addLayer(geojson); 
-            
-        }
-        moveSlider(0) 
-        window.onload = function() {
-        document.getElementById('dateSlider').value = 0;  
-    };
+var hIcon = L.icon({
+    iconUrl: './images/hurrpic.png',
+    iconSize: [50, 50],
+    iconAnchor: [0,0],
+    
+})
 
+var geojson = L.geoJSON(track, {
+    pointToLayer: function(feature,latlng){
+        return L.marker(latlng,{icon:hIcon})
+    }
+}).addTo(map);
 
     
 </script>
