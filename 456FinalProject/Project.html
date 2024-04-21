@@ -15,7 +15,9 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
-    <script src="./data/iantrack.js>"></script>
+
+
+    <script src="./data/track.js>"></script>
     <script src="./data/oldiantrack.js"></script>
     <script src="./data/mobilehomes.js"></script>
     
@@ -299,7 +301,7 @@ var hIcon = L.icon({
 })
 
 var geojson = L.geoJSON(track, {
-    pointToLayer: function(features,latlng){
+    pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon:hIcon})
     }
 }).addTo(map);
