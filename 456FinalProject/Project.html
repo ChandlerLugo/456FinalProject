@@ -288,10 +288,16 @@
 
   /////////////////////////////////track Data//////////////////////////////////////////////////////////////
 
+  L.geoJSON(linetrack, {
+    style: function (feature) {
+        return {
+            color: 'black',
+            weight: 3, // Adjust the weight as needed
+            // Add other styling options here
+        };
+    }
+}).addTo(map);
 
-  L.geoJSON(linetrack).addTo(map);
-
-  
 
 ///////////////////////////////track data////////////////////////////////////////////////////////////////////////////
 
@@ -320,7 +326,9 @@ var geojson = L.geoJSON(track, {
 
     function moveSlider(value) { // function called by the slider that uses the value to select one feature, using the index of the feature array. 
             map.removeLayer(geojson);
-            document.getElementById('Time').innerHTML = 'DAY' + track.features[value]
+            var hhmm = track.features[value].properties.HHMM;
+            var dayofmonth = track.features[value].properties.DAY;
+            document.getElementById('Time').innerHTML = 'Day and Time:' + ' ' + 'September' + ' ' + dayofmonth + ' ' +'at' + ' ' + hhmm + ' ' + 'UTC'
             geojson = L.geoJson(track.features[value],{
                 pointToLayer: function(feature,latlng){
                     return L.marker(latlng,{icon: hIcon})
