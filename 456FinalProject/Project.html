@@ -17,7 +17,7 @@
     crossorigin=""></script>
 
 
-    <script src="./data/track.js>"></script>
+    <script src="./data/track.js"></script>
     <script src="./data/oldiantrack.js"></script>
     <script src="./data/mobilehomes.js"></script>
     
@@ -27,8 +27,8 @@
 
 <style>
     .map { 
-        width: 50%;
-        height: 700px;
+        width: 40%;
+        height: 500px;
         margin: 0 auto;
     }
      
@@ -70,7 +70,7 @@
     }
     .infobox {
         width: 40%;
-        height: 700px;
+        height: 500px;
         margin: 0 auto;
         background-color: rgb(208, 255, 254);
         display: none; 
@@ -155,8 +155,7 @@
         
     </div>
 
-    <h3 id="Time" style="color: #ffffff;"> Day and Time </h3>
-    <input class="slider" id="slider" type = "range" name = "Time" min = "0" max = "33" oninput="moveSlider(this.value)">
+    
     
     <div class="container">
         <div class="map", id="map"></div>
@@ -219,9 +218,14 @@
 
         </div>
     </div>
+
+<h3 id="Time" style="color: #ffffff;"> Day and Time </h3>
+<input class="slider" id="slider" type = "range" name = "DTG" 
+    min = "0" max = "36" oninput="moveSlider(this.value)">
+
 <script>
 
-    var map = L.map('map').setView([27.951, -82.458], 7);
+    var map = L.map('map').setView([27.951, -82.458], 6);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -291,30 +295,52 @@
 
 ///////////////////////////////track data////////////////////////////////////////////////////////////////////////////
 
-///L.geoJSON(track).addTo(map)
 
 var hIcon = L.icon({
     iconUrl: './images/hurrpic.png',
     iconSize: [50, 50],
-    iconAnchor: [0,0],
     
 })
 
 var geojson = L.geoJSON(track, {
-    pointToLayer: function(feature,latlng){
+   pointToLayer: function(feature,latlng){
         return L.marker(latlng,{icon:hIcon})
     }
 }).addTo(map);
 
 
+    function moveSlider(value) {
+        geojson.remove();
+        geojson = L.geoJSON(track.features[value], {
+            pointToLayer: function (feature, latlng){
+                return L.marker(latlng, {icon:hIcon})
+            }
+        })
+    }
 
+    function moveSlider(value) { // function called by the slider that uses the value to select one feature, using the index of the feature array. 
+            //console.log(e.value)
+            map.removeLayer(geojson);// leaflet method to remove a layer
+            document.getElementById('Time').innerHTML = 'DAY' + track.features[value]
+            geojson = L.geoJson(track.features[value],{
+                pointToLayer: function(feature,latlng){
+                    return L.marker(latlng,{icon: hIcon})
+                }
+            })
+            map.addLayer(geojson); // add the new layer
+            
+        }
+        moveSlider(0) // start the map with the first feature
+        window.onload = function() {
+        document.getElementById('slider').value = 0; 
+        }
 
 
 
 ///////////////////////////////////end script////////////////////////////////////////////////////////////
 </script>
 
-
+    
  <div class="style-div">
     <h3>My Map</h3>
         <p>
