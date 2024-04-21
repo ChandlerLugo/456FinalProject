@@ -1,6 +1,6 @@
 var track = {
     "type": "FeatureCollection",
-    "name": "trackpoints",
+    "name": "track",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
     "features": [
     { "type": "Feature", "properties": { "STORMNAME": "INVEST", "DTG": 2022092218.0, "YEAR": 2022.0, "MONTH": "09", "DAY": 22.0, "HHMM": "1800", "MSLP": 1006.0, "BASIN": "al", "STORMNUM": 9.0, "STORMTYPE": "LO", "INTENSITY": 30.0, "SS": 0.0, "LAT": 12.3, "LON": -66.3 }, "geometry": { "type": "Point", "coordinates": [ -66.3, 12.3 ] } },
