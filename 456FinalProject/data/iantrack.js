@@ -1,4 +1,5 @@
-var track = {
+var track = 
+    {
     "type": "FeatureCollection",
     "name": "track",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
