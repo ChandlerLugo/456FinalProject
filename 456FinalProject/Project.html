@@ -221,7 +221,7 @@
 
 <h3 id="Time" style="color: #ffffff;"> Day and Time </h3>
 <input class="slider" id="slider" type = "range" name = "DTG" 
-    min = "0" max = "36" oninput="moveSlider(this.value)">
+    min = "0" max = "35" oninput="moveSlider(this.value)">
 
 <script>
 
@@ -319,18 +319,17 @@ var geojson = L.geoJSON(track, {
     }
 
     function moveSlider(value) { // function called by the slider that uses the value to select one feature, using the index of the feature array. 
-            //console.log(e.value)
-            map.removeLayer(geojson);// leaflet method to remove a layer
+            map.removeLayer(geojson);
             document.getElementById('Time').innerHTML = 'DAY' + track.features[value]
             geojson = L.geoJson(track.features[value],{
                 pointToLayer: function(feature,latlng){
                     return L.marker(latlng,{icon: hIcon})
                 }
             })
-            map.addLayer(geojson); // add the new layer
+            map.addLayer(geojson); 
             
         }
-        moveSlider(0) // start the map with the first feature
+        moveSlider(0) 
         window.onload = function() {
         document.getElementById('slider').value = 0; 
         }
