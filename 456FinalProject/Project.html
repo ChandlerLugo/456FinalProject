@@ -277,7 +277,7 @@
             pointToLayer: function (features) {
             var coordinates = features.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
-                radius: 5, 
+                radius: 3, 
                 fillColor: "yellow", 
                 color: "black", 
                 weight: 1, 
@@ -295,7 +295,7 @@
             pointToLayer: function (features) {
             var coordinates = features.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
-                radius: 5, 
+                radius: 3, 
                 fillColor: "red", 
                 color: "black", 
                 weight: 1, 
@@ -313,7 +313,7 @@
             pointToLayer: function (features) {
             var coordinates = features.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
-                radius: 5, 
+                radius: 3, 
                 fillColor: "red", 
                 color: "black", 
                 weight: 1, 
@@ -331,7 +331,7 @@
             pointToLayer: function (features) {
             var coordinates = features.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
-                radius: 5, 
+                radius: 3, 
                 fillColor: "red", 
                 color: "black", 
                 weight: 1, 
@@ -349,7 +349,7 @@
             pointToLayer: function (features) {
             var coordinates = features.geometry.coordinates;
             return L.circleMarker([coordinates[1], coordinates[0]], {
-                radius: 5, 
+                radius: 3, 
                 fillColor: "red", 
                 color: "black", 
                 weight: 1, 
@@ -452,6 +452,12 @@ function addMobile1(value) {
     
  <div class="style-div">
     <h3>Map Notes</h3>
+        <p>
+            Yellow circle markers: mobile home parks in Florida
+        </p>
+        <p>
+            Red Circle markers: mobile homes within 75 mile wind field
+        </p>
         <p>
             Number of mobile home parks within 75 mile wind field: 1,214    
         </p>
