@@ -20,6 +20,10 @@
     <script src="./data/track.js"></script>
     <script src="./data/oldiantrack.js"></script>
     <script src="./data/mobilehomes.js"></script>
+    <script src="./data/mobile1.js"></script>
+    <script src="./data/mobile2.js"></script>
+    <script src="./data/mobile3.js"></script>
+    <script src="./data/mobile4.js"></script>
     
 
 
@@ -341,6 +345,27 @@ var geojson = L.geoJSON(track, {
         window.onload = function() {
         document.getElementById('slider').value = 0; 
         }
+//////////////////////////adding layers with time////////////////////////////////////////////////////////
+
+function addMobileHomesLayer(value) {
+    var feature = track.features[value].properties;
+    var day = feature.DAY;
+    var time = feature.HHMM;
+
+    // Check if the slider reaches a specific time and day, then add the mobilehomes layer accordingly
+    if (day === '28' && (time === '1800')) {
+        map.addLayer(mobile1);
+    }
+    if (day === '29' && (time === '0000')) {
+        map.addLayer(mobile2);
+    }
+    if (day === '29' && (time === '0600')) {
+        map.addLayer(mobile3);
+    }
+    if (day === '29' && (time === '1200')) {
+        map.addLayer(mobile4);
+    }
+}
 
 
 ///////////////////////////////////end script////////////////////////////////////////////////////////////
