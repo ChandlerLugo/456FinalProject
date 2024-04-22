@@ -288,6 +288,78 @@
     
         addGeoJSONCirclesToMap(map, mobilehomes);
 
+    function addGeoJSONCirclesToMap2(map, mobile1) {
+        L.geoJSON(mobile1, {
+            pointToLayer: function (features) {
+            var coordinates = features.geometry.coordinates;
+            return L.circleMarker([coordinates[1], coordinates[0]], {
+                radius: 5, 
+                fillColor: "red", 
+                color: "black", 
+                weight: 1, 
+                opacity: 1, 
+                fillOpacity: 0.8 
+            });
+        }
+    }).addTo(map);
+        }
+    
+        addGeoJSONCirclesToMap2(map, mobile1);
+
+    function addGeoJSONCirclesToMap3(map, mobile2) {
+        L.geoJSON(mobile2, {
+            pointToLayer: function (features) {
+            var coordinates = features.geometry.coordinates;
+            return L.circleMarker([coordinates[1], coordinates[0]], {
+                radius: 5, 
+                fillColor: "red", 
+                color: "black", 
+                weight: 1, 
+                opacity: 1, 
+                fillOpacity: 0.8 
+            });
+        }
+    }).addTo(map);
+        }
+    
+        addGeoJSONCirclesToMap3(map, mobile2);
+    
+    function addGeoJSONCirclesToMap4(map, mobile3) {
+        L.geoJSON(mobile3, {
+            pointToLayer: function (features) {
+            var coordinates = features.geometry.coordinates;
+            return L.circleMarker([coordinates[1], coordinates[0]], {
+                radius: 5, 
+                fillColor: "red", 
+                color: "black", 
+                weight: 1, 
+                opacity: 1, 
+                fillOpacity: 0.8 
+            });
+        }
+    }).addTo(map);
+        }
+    
+        addGeoJSONCirclesToMap4(map, mobile3);
+    
+    function addGeoJSONCirclesToMap5(map, mobile4) {
+        L.geoJSON(mobile4, {
+            pointToLayer: function (features) {
+            var coordinates = features.geometry.coordinates;
+            return L.circleMarker([coordinates[1], coordinates[0]], {
+                radius: 5, 
+                fillColor: "red", 
+                color: "black", 
+                weight: 1, 
+                opacity: 1, 
+                fillOpacity: 0.8 
+            });
+        }
+    }).addTo(map);
+        }
+    
+        addGeoJSONCirclesToMap5(map, mobile4);
+
 
 
   /////////////////////////////////track Data//////////////////////////////////////////////////////////////
@@ -347,25 +419,29 @@ var geojson = L.geoJSON(track, {
         }
 //////////////////////////adding layers with time////////////////////////////////////////////////////////
 
-function addMobileHomesLayer(value) {
+function addMobile1(value) {
     var feature = track.features[value].properties;
-    var day = feature.DAY;
-    var time = feature.HHMM;
+    var days = feature.DAY;
+    var times = feature.HHMM;
+    L.geoJSON(mobile1, {
+            pointToLayer: function (features) {
+            var coordinates = features.geometry.coordinates;
+            return L.circleMarker([coordinates[1], coordinates[0]], {
+                radius: 5, 
+                fillColor: "red", 
+                color: "black", 
+                weight: 1, 
+                opacity: 1, 
+                fillOpacity: 0.8 
+        });
+        }})
 
     // Check if the slider reaches a specific time and day, then add the mobilehomes layer accordingly
-    if (day === '28' && (time === '1800')) {
+    if (days === '28' && (times === '1800')) {
         map.addLayer(mobile1);
     }
-    if (day === '29' && (time === '0000')) {
-        map.addLayer(mobile2);
-    }
-    if (day === '29' && (time === '0600')) {
-        map.addLayer(mobile3);
-    }
-    if (day === '29' && (time === '1200')) {
-        map.addLayer(mobile4);
-    }
 }
+    addMobile1(value);
 
 
 ///////////////////////////////////end script////////////////////////////////////////////////////////////
